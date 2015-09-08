@@ -1,11 +1,10 @@
 STEPS:
 
 
-1. Extract file named Invader Spacers - build 16 - py-3.4 - 0.4.zip to current folder.
+1. Extract current folder to desktop.
 
-2. When done a new folder should appear named Invader Spacers.
+2. Open folder and look for another zip folder, extract that folder to the folder you are currently in.
 
-3. Open that folder and look for a README.txt file... read it! Then look for an .exe file 
-named Invader Spacers.exe and double click it.
+3. Open Invader Spacers Stable Build v 0.1 folder and double click Invader Spacers exe.
 
 4. Have fun and ENJOY!
