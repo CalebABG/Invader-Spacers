@@ -5,12 +5,12 @@ import Bullets_class
 
 class Player(pygame.sprite.Sprite):
 
-    def __init__(self, displaywidth, displayheight, dt, player_speed):
+    def __init__(self, display_width, display_height, dt, player_speed):
 
         super(Player, self).__init__()
 
-        self.displayw = displaywidth
-        self.displayh = displayheight
+        self.displayw = display_width
+        self.displayh = display_height
 
         self.initial_vel = 0.1  # Default value is 0.1
         self.time = float(dt / 300)
@@ -47,7 +47,7 @@ class Player(pygame.sprite.Sprite):
     def death(self):
         pygame.sprite.Sprite.kill(self)
 
-    def reg_shot(self, alien_group, displayheight, bullet_group):
+    def reg_shot(self, alien_group, display_height, bullet_group):
 
         if pygame.key.get_pressed()[pygame.K_UP] != 0:
 
@@ -60,10 +60,10 @@ class Player(pygame.sprite.Sprite):
                 bullets.vspeed += gravity
 
             for bullet in bullet_group:
-                if bullet.rect.y < 0 or bullet.rect.y > displayheight:
+                if bullet.rect.y < 0 or bullet.rect.y > display_height:
                     pygame.sprite.Sprite.kill(bullet)
 
-    def deathray_shot(self, alien_group, displayheight, bullet_group):
+    def death_ray_shot(self, alien_group, display_height, bullet_group):
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:
@@ -77,7 +77,7 @@ class Player(pygame.sprite.Sprite):
                 bullets.vspeed += gravity
 
             for bullet in bullet_group:
-                if bullet.rect.y < 0 or bullet.rect.y > displayheight:
+                if bullet.rect.y < 0 or bullet.rect.y > display_height:
                     pygame.sprite.Sprite.kill(bullet)
 
     def update(self, collidable, dt):

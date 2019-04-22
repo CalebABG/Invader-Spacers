@@ -513,7 +513,7 @@ class Res_3:
 
             """ Draws the player on the  screen and updates the player """
 
-            player.deathray_shot(alien_group, displayheight, bullet_group)
+            player.death_ray_shot(alien_group, displayheight, bullet_group)
             player_group.draw(window)
             player_group.update(alien_group, dt)
 
