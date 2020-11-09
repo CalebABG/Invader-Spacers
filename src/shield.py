@@ -16,20 +16,20 @@ class Shield(pygame.sprite.Sprite):
 
         self.enemies_group = enemies
 
-        self.lifetime = 255  # Default value is 250
+        self.lifetime = 255
 
         if shield_level == 1:
-            self.lifetime = 255
+            self.lifetime *= 2
 
         elif shield_level == 2:
-            self.lifetime = 2055
+            self.lifetime = 2048
 
         self.radius = 50
 
         self.image = pygame.Surface((108, 108))
 
-        pygame.gfxdraw.arc(self.image, self.radius, self.radius, self.radius, 180, 0, (0, 46, 184))
-        # pygame.gfxdraw.circle(self.image, self.radius, self.radius, self.radius, (0, 46, 184))
+        # pygame.gfxdraw.arc(self.image, self.radius, self.radius, self.radius, 180, 0, (0, 46, 184))
+        pygame.gfxdraw.circle(self.image, self.radius, self.radius, self.radius, (0, 46, 184))
 
         self.image.set_colorkey((0, 0, 0))
 
@@ -45,18 +45,11 @@ class Shield(pygame.sprite.Sprite):
 
         if self.lifetime == 0:
             pygame.sprite.Sprite.kill(self)
-
         else:
             self.lifetime -= 1
 
-        # print(self.get_lifetime())
-
         if self.get_lifetime() < 25:
-            pygame.gfxdraw.arc(self.image, self.radius, self.radius, self.radius, 180, 0, (255, 0, 0))
+            pygame.gfxdraw.circle(self.image, self.radius, self.radius, self.radius, (255, 0, 0))
+            # pygame.gfxdraw.arc(self.image, self.radius, self.radius, self.radius, 180, 0, (255, 0, 0))
 
-        hit_list = pygame.sprite.spritecollide(self, self.enemies_group, True)
-
-        # for x in self.enemies_group:
-        #
-        #     for x in hit_list:
-        #         pygame.sprite.Sprite.kill(x)
+        pygame.sprite.spritecollide(self, self.enemies_group, True)

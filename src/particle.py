@@ -1,12 +1,12 @@
 import pygame
 
 
-class Particles(pygame.sprite.Sprite):
+class Particle(pygame.sprite.Sprite):
     """ First method to be called when the sprite (object) is created """
     """ Gives the sprite a color, width, height, vertical speed, and horizontal speed """
 
     def __init__(self, rgb, width, height):
-        super(Particles, self).__init__()
+        super(Particle, self).__init__()
 
         self.image = pygame.Surface((width, height))
 
@@ -17,8 +17,8 @@ class Particles(pygame.sprite.Sprite):
         self.origin_x = self.rect.centerx
         self.origin_y = self.rect.centery
 
-        self.hspeed = 0
-        self.vspeed = 0
+        self.h_speed = 0
+        self.v_speed = 0
 
     """ Method to set the position of the sprite """
 
@@ -29,5 +29,5 @@ class Particles(pygame.sprite.Sprite):
     """ Method to update the particles """
 
     def update(self):
-        self.rect.x += self.hspeed
-        self.rect.y += self.vspeed
+        self.rect.x += self.h_speed
+        self.rect.y += self.v_speed

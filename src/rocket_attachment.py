@@ -2,15 +2,15 @@ import pygame
 from pygame.locals import *
 
 
-class RocketAttatchments(pygame.sprite.Sprite):
+class RocketAttachment(pygame.sprite.Sprite):
 
     def __init__(self, display_width, display_height, collision_sprite_group):
 
-        super(RocketAttatchments, self).__init__()
+        super(RocketAttachment, self).__init__()
 
-        self.displayw = display_width
+        self.display_width = display_width
 
-        self.displayh = display_height
+        self.display_height = display_height
 
         self.collision_sprite_group = collision_sprite_group
 
@@ -49,17 +49,13 @@ class RocketAttatchments(pygame.sprite.Sprite):
         self.rect.x += self.vx
         self.rect.y += self.vy
 
-        if self.rect.y > self.displayh or self.rect.y < 0:
+        if self.rect.y > self.display_height or self.rect.y < 0:
             self.dead()
 
-        elif self.rect.y > self.displayw or self.rect.y < 0:
+        elif self.rect.y > self.display_width or self.rect.y < 0:
             self.dead()
 
         elif self.lifetime == 0:
             self.dead()
 
-        hit_list = pygame.sprite.spritecollide(self, self.collision_sprite_group, True)
-
-        # for x in hit_list:
-        #     pygame.sprite.Sprite.kill(x)
-        #     self.dead()
+        pygame.sprite.spritecollide(self, self.collision_sprite_group, True)

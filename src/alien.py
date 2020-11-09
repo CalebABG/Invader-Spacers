@@ -1,10 +1,10 @@
-from Explosions_class import *
+import pygame
 
 
-class Aliens(pygame.sprite.Sprite):
+class Alien(pygame.sprite.Sprite):
 
     def __init__(self, width, height, player, player_sprite_group):
-        super(Aliens, self).__init__()
+        super(Alien, self).__init__()
 
         self.player_sprite = player
 
@@ -17,8 +17,8 @@ class Aliens(pygame.sprite.Sprite):
         self.origin_x = self.rect.centerx
         self.origin_y = self.rect.centery
 
-        self.displayWidth = width
-        self.displayHeight = height
+        self.display_width = width
+        self.display_height = height
 
         self.vx = 0
         self.vy = 0
@@ -38,7 +38,7 @@ class Aliens(pygame.sprite.Sprite):
         self.rect.x += self.vx
         self.rect.y += self.vy
 
-        if self.rect.y > self.displayHeight:
+        if self.rect.y > self.display_height:
             self.death()
 
-        hit_list = pygame.sprite.spritecollide(self, self.player_group, True)
+        pygame.sprite.spritecollide(self, self.player_group, True)
